@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btNunu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="努努影视"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btQindou"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="天天美剧"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btpianku"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="片库影视"
+        android:visibility="gone"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btyinghua"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="樱花动漫"
+        />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
