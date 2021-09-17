@@ -1,3 +1,3 @@
 # MyTools
 
-通过学习编写的一个工具APP
+学习如何架构一个中大型Android APP
