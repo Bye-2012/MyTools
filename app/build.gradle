@@ -6,7 +6,7 @@ plugins {
 
 android {
     compileSdkVersion 31
-    buildToolsVersion "30.0.2"
+    buildToolsVersion '30.0.2'
 
     defaultConfig {
         applicationId "com.moon.mytools"
@@ -41,7 +41,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    testImplementation 'junit:junit:4.+'
+    testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
@@ -52,4 +52,7 @@ dependencies {
     implementation "com.umeng.umsdk:common:9.4.2" //必选
     implementation "com.umeng.umsdk:asms:1.4.1" //必选
     implementation 'com.umeng.umsdk:apm:1.4.2' //错误分析统计
+
+    // gson
+    implementation 'com.google.code.gson:gson:2.8.8'
 }
