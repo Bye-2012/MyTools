@@ -29,10 +29,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".VideoListActivity" />
+        <activity android:name=".demo.VideoListActivity" />
 
         <activity
-            android:name=".WebViewActivity"
+            android:name=".demo.WebViewActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             />
 

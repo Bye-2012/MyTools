@@ -8,9 +8,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 /**
- * Author: LuXin
+ * Author: Moon
  * Date: 9/9/21
- * Desc: 日志输出类型
+ * Desc: 日志输出级别
  */
 public class MLogType {
 

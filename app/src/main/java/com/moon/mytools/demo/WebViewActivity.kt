@@ -1,4 +1,4 @@
-package com.moon.mytools
+package com.moon.mytools.demo
 
 import android.content.Context
 import android.os.Build
@@ -8,6 +8,7 @@ import android.view.KeyEvent
 import android.view.View
 import android.webkit.WebSettings
 import androidx.appcompat.app.AppCompatActivity
+import com.moon.mytools.R
 import com.tencent.smtt.export.external.interfaces.IX5WebChromeClient
 import com.tencent.smtt.export.external.interfaces.SslError
 import com.tencent.smtt.export.external.interfaces.SslErrorHandler
@@ -19,7 +20,7 @@ import com.ycbjie.webviewlib.view.X5WebView
 import kotlinx.android.synthetic.main.activity_webview.*
 
 /**
- * Author: LuXin
+ * Author: Moon
  * Date: 9/7/21
  * Desc: WebView 页面
  */
