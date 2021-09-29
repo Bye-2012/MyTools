@@ -16,12 +16,19 @@
         tools:ignore="MissingConstraints"
         />
 
-
     <Button
         android:id="@+id/showLog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="显示日志"
+        tools:ignore="MissingConstraints"
+        />
+
+    <Button
+        android:id="@+id/tabBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TabBottom"
         tools:ignore="MissingConstraints"
         />
 

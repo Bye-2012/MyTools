@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 30
     buildToolsVersion '30.0.2'
 
     defaultConfig {
@@ -31,6 +31,13 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    sourceSets {
+        main {
+            assets {
+                srcDirs 'src/main/assets'
+            }
+        }
+    }
 }
 
 dependencies {
@@ -41,12 +48,11 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation project(path: ':mui')
+    implementation project(path: ':common')
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-
-    //X5WebView
-    implementation 'cn.yc:WebViewLib:1.4.0'
 
     //Umeng
     implementation "com.umeng.umsdk:common:9.4.2" //必选
