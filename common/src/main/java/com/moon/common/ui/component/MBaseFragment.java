@@ -20,7 +20,7 @@ public abstract class MBaseFragment extends Fragment {
     protected View mLayoutView;
 
     @LayoutRes
-    abstract int getLayoutId();
+    protected abstract int getLayoutId();
 
     @Nullable
     @Override

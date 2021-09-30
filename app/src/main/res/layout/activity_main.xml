@@ -1,35 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<com.moon.mui.tab.bottom.MTabBottomLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tab_bottom_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".MainActivity"
     >
 
-    <Button
-        android:id="@+id/btMovie"
+    <com.moon.common.tab.MFragmentTabView
+        android:id="@+id/fragment_tab_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="看视频"
-        tools:ignore="MissingConstraints"
+        android:layout_height="match_parent"
         />
 
-    <Button
-        android:id="@+id/showLog"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="显示日志"
-        tools:ignore="MissingConstraints"
-        />
-
-    <Button
-        android:id="@+id/tabBottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TabBottom"
-        tools:ignore="MissingConstraints"
-        />
-
-</LinearLayout>
+</com.moon.mui.tab.bottom.MTabBottomLayout>
