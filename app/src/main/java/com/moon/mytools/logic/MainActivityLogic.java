@@ -1,6 +1,7 @@
 package com.moon.mytools.logic;
 
 import android.content.res.Resources;
+import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 
@@ -29,16 +30,24 @@ import java.util.List;
  */
 public class MainActivityLogic {
 
+    private final static String SAVED_CURRENT_ID = "SAVED_CURRENT_ID";
+
     private final ActivityProvider mActivityProvider;
     private MTabBottomLayout mTabBottomLayout;
     private MFragmentTabView mFragmentTabView;
     private ArrayList<MTabBottomInfo<?>> mInfoList;
     private int currentItemIndex;
 
-    public MainActivityLogic(ActivityProvider activityProvider) {
+    public MainActivityLogic(ActivityProvider activityProvider, Bundle savedInstanceState) {
         this.mActivityProvider = activityProvider;
-
+        if (savedInstanceState != null) {
+            currentItemIndex = savedInstanceState.getInt(SAVED_CURRENT_ID);
+        }
         initTabBottom();
+    }
+
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putInt(SAVED_CURRENT_ID, currentItemIndex);
     }
 
     public MFragmentTabView getFragmentTabView() {
@@ -55,7 +64,6 @@ public class MainActivityLogic {
 
     private void initTabBottom() {
         mTabBottomLayout = ((MTabBottomLayout) mActivityProvider.findViewById(R.id.tab_bottom_layout));
-
         mTabBottomLayout.setAlpha(0.8f);
 
         mInfoList = new ArrayList<>();
