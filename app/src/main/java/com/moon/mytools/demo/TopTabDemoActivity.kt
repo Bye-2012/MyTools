@@ -9,20 +9,6 @@ import kotlinx.android.synthetic.main.activity_top_tab_demo.*
 
 class TopTabDemoActivity : MBaseActivity() {
 
-    private val tabsStr = arrayOf(
-        "热门",
-        "服装",
-        "数码",
-        "鞋子",
-        "零食",
-        "家电",
-        "汽车",
-        "百货",
-        "家居",
-        "装修",
-        "运动"
-    )
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_top_tab_demo)
@@ -33,6 +19,19 @@ class TopTabDemoActivity : MBaseActivity() {
         val infoList: MutableList<MTabTopInfo<*>> = mutableListOf()
         val defaultColor = resources.getColor(R.color.tabBottomDefaultColor)
         val tintColor = resources.getColor(R.color.tabBottomTintColor)
+        val tabsStr = arrayOf(
+            "热门",
+            "服装",
+            "数码",
+            "鞋子",
+            "零食",
+            "家电",
+            "汽车",
+            "百货",
+            "家居",
+            "装修",
+            "运动"
+        )
         for (name in tabsStr) {
             val tabTopInfo = MTabTopInfo(name, defaultColor, tintColor)
             infoList.add(tabTopInfo)
