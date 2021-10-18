@@ -23,14 +23,19 @@
         android:theme="@style/Theme.MyTools"
         tools:targetApi="n"
         >
-        <activity android:name=".demo.TopTabDemoActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".demo.TopTabDemoActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".web.WebListActivity" />
+        <activity android:name=".web.WebViewActivity" />
     </application>
 
 </manifest>

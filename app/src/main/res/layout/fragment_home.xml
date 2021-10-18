@@ -19,4 +19,12 @@
         android:text="TopTab"
         />
 
+    <Button
+        android:id="@+id/btn_video"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="Video"
+        />
+
 </FrameLayout>

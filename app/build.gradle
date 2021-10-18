@@ -64,4 +64,7 @@ dependencies {
 
     // Lottie
     implementation 'com.airbnb.android:lottie:4.2.0'
+
+    //X5WebView
+    implementation 'com.tencent.tbs:tbssdk:44085'
 }

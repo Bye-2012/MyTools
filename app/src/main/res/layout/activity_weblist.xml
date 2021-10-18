@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_nunu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="努努影视"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_yinghua"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="樱花动漫"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_91"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="91"
+        android:visibility="gone"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_xvideo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="XVideo"
+        android:visibility="gone"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="自定义"
+        />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
