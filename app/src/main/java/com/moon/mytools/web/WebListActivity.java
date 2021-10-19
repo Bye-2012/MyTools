@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -13,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatEditText;
 
 import com.moon.mytools.R;
+import com.moon.mytools.utils.AESUtils;
+import com.moon.mytools.utils.KeyBordUtil;
 
 import java.util.Objects;
 
@@ -36,6 +39,7 @@ public class WebListActivity extends AppCompatActivity implements View.OnClickLi
         findViewById(R.id.btn_91).setOnClickListener(this);
         findViewById(R.id.btn_xvideo).setOnClickListener(this);
         findViewById(R.id.btn_add).setOnClickListener(this);
+        findViewById(R.id.btn_bd).setOnClickListener(this);
     }
 
     @Override
@@ -51,10 +55,13 @@ public class WebListActivity extends AppCompatActivity implements View.OnClickLi
                 loadUrl("http://m.yhdm.io/");
                 break;
             case R.id.btn_91:
-                loadUrl("https://91porn.com/");
+                inputPwd("wahPZKPntDzlIQcZNbsA19WpqgBn9aApUq55PJtNxh0=");
                 break;
             case R.id.btn_xvideo:
-                loadUrl("https://www.xvideos.com/");
+                inputPwd("MHNvtk9aqhh6mpwf7AOApUP+spFUEYSuvnGO1WDOZQc=");
+                break;
+            case R.id.btn_bd:
+                loadUrl("https://www.bd2020.com/");
                 break;
             default:
                 loadUrl("https://www.baidu.com");
@@ -81,7 +88,26 @@ public class WebListActivity extends AppCompatActivity implements View.OnClickLi
         WebViewActivity.open(this, url);
     }
 
-    @SuppressLint("SetTextI18n")
+    private void inputPwd(String aesUrl) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = LayoutInflater.from(this).inflate(R.layout.dialog_input_pwd, null);
+        builder.setView(view);
+        AppCompatEditText etUrlPwd = (AppCompatEditText) view.findViewById(R.id.et_url_pwd);
+        view.findViewById(R.id.btn_pwd_ensure).setOnClickListener(v -> {
+            String pwd = Objects.requireNonNull(etUrlPwd.getText()).toString();
+            pwd = pwd + pwd + pwd + pwd;
+            String result = AESUtils.decrypt(pwd, aesUrl);
+            if (result == null || !result.startsWith("http")) {
+                Toast.makeText(WebListActivity.this, "不对啊，兄弟", Toast.LENGTH_SHORT).show();
+            } else {
+                loadUrl(result);
+            }
+        });
+        AlertDialog show = builder.show();
+        show.setCanceledOnTouchOutside(false);
+        KeyBordUtil.showSoftInput(this, etUrlPwd);
+    }
+
     private void AddUrl() {
         final boolean[] https = {false};
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -99,8 +125,8 @@ public class WebListActivity extends AppCompatActivity implements View.OnClickLi
         });
         builder.setView(view);
         AlertDialog dialog = builder.show();
-
         dialog.setCanceledOnTouchOutside(false);
+        KeyBordUtil.showSoftInput(this, etUrl);
     }
 
     public static void open(Context context) {

@@ -24,6 +24,7 @@
         tools:targetApi="n"
         >
         <activity android:name=".demo.TopTabDemoActivity" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -34,8 +35,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".web.WebListActivity" />
-        <activity android:name=".web.WebViewActivity" />
+
+        <activity
+            android:name=".web.WebListActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            />
+
+        <activity
+            android:name=".web.WebViewActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            />
+
     </application>
 
 </manifest>

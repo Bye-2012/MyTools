@@ -9,6 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="44dp"
+        android:visibility="gone"
         >
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -40,11 +41,10 @@
 
     </RelativeLayout>
 
-    <com.tencent.smtt.sdk.WebView
+    <com.ycbjie.webviewlib.view.X5WebView
         android:id="@+id/wv_show"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbarSize="3dp"
         />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

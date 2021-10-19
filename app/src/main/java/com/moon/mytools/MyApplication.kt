@@ -7,6 +7,7 @@ import com.moon.mlibrary.log.MLogConfig
 import com.moon.mlibrary.log.MLogConfig.JsonParser
 import com.moon.mlibrary.log.MLogManager
 import com.umeng.commonsdk.UMConfigure
+import com.ycbjie.webviewlib.utils.X5WebUtils
 
 /**
  * Author: Moon
@@ -45,5 +46,7 @@ class MyApplication : MBaseApplication() {
             }
 
         }, MConsolePrinter())
+
+        X5WebUtils.init(this)
     }
 }
