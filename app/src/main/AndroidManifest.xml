@@ -48,6 +48,7 @@
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait"
             />
+        <activity android:name=".demo.RefreshDemoActivity" />
 
     </application>
 
