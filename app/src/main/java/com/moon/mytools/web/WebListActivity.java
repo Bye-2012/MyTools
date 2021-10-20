@@ -16,6 +16,7 @@ import androidx.appcompat.widget.AppCompatEditText;
 import com.moon.mytools.R;
 import com.moon.mytools.utils.AESUtils;
 import com.moon.mytools.utils.KeyBordUtil;
+import com.moon.mytools.utils.SharedPreferencesUtil;
 
 import java.util.Objects;
 
@@ -36,7 +37,6 @@ public class WebListActivity extends AppCompatActivity implements View.OnClickLi
         findViewById(R.id.btn_nunu).setOnLongClickListener(this);
         findViewById(R.id.btn_yinghua).setOnClickListener(this);
         findViewById(R.id.btn_yinghua).setOnLongClickListener(this);
-        findViewById(R.id.btn_91).setOnClickListener(this);
         findViewById(R.id.btn_xvideo).setOnClickListener(this);
         findViewById(R.id.btn_add).setOnClickListener(this);
         findViewById(R.id.btn_bd).setOnClickListener(this);
@@ -54,12 +54,15 @@ public class WebListActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.btn_yinghua:
                 loadUrl("http://m.yhdm.io/");
                 break;
-            case R.id.btn_91:
-                inputPwd("wahPZKPntDzlIQcZNbsA19WpqgBn9aApUq55PJtNxh0=");
+            case R.id.btn_xvideo: {
+                String s = SharedPreferencesUtil.getString("MHNvtk9aqhh6mpwf7AOApUP+spFUEYSuvnGO1WDOZQc=");
+                if (s != null && s.startsWith("http")) {
+                    loadUrl(s);
+                } else {
+                    inputPwd("MHNvtk9aqhh6mpwf7AOApUP+spFUEYSuvnGO1WDOZQc=");
+                }
                 break;
-            case R.id.btn_xvideo:
-                inputPwd("MHNvtk9aqhh6mpwf7AOApUP+spFUEYSuvnGO1WDOZQc=");
-                break;
+            }
             case R.id.btn_bd:
                 loadUrl("https://www.bd2020.com/");
                 break;
@@ -73,11 +76,9 @@ public class WebListActivity extends AppCompatActivity implements View.OnClickLi
     public boolean onLongClick(View v) {
         switch (v.getId()) {
             case R.id.btn_nunu:
-                findViewById(R.id.btn_91).setVisibility(View.VISIBLE);
                 findViewById(R.id.btn_xvideo).setVisibility(View.VISIBLE);
                 return true;
             case R.id.btn_yinghua:
-                findViewById(R.id.btn_91).setVisibility(View.GONE);
                 findViewById(R.id.btn_xvideo).setVisibility(View.GONE);
                 return true;
         }
@@ -87,6 +88,8 @@ public class WebListActivity extends AppCompatActivity implements View.OnClickLi
     private void loadUrl(String url) {
         WebViewActivity.open(this, url);
     }
+
+    private AlertDialog inputPwdDialog;
 
     private void inputPwd(String aesUrl) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -100,11 +103,13 @@ public class WebListActivity extends AppCompatActivity implements View.OnClickLi
             if (result == null || !result.startsWith("http")) {
                 Toast.makeText(WebListActivity.this, "不对啊，兄弟", Toast.LENGTH_SHORT).show();
             } else {
+                SharedPreferencesUtil.put(aesUrl, result);
                 loadUrl(result);
+                inputPwdDialog.dismiss();
             }
         });
-        AlertDialog show = builder.show();
-        show.setCanceledOnTouchOutside(false);
+        inputPwdDialog = builder.show();
+        inputPwdDialog.setCanceledOnTouchOutside(false);
         KeyBordUtil.showSoftInput(this, etUrlPwd);
     }
 
@@ -121,6 +126,10 @@ public class WebListActivity extends AppCompatActivity implements View.OnClickLi
         });
         view.findViewById(R.id.btn_url).setOnClickListener(v -> {
             String url = Objects.requireNonNull(etUrl.getText()).toString();
+            if (!url.startsWith("http")) {
+                Toast.makeText(WebListActivity.this, "必须Http或Https开头", Toast.LENGTH_SHORT).show();
+                return;
+            }
             WebViewActivity.open(WebListActivity.this, url);
         });
         builder.setView(view);

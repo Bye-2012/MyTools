@@ -94,7 +94,7 @@ public class WebViewActivity extends MBaseActivity {
                         "document.querySelector('.swiper-container').style.display=\"none\";" +
                         "document.querySelector('.swiper-wrapper').style.display=\"none\";" +
                         "document.querySelector('.swiper-container').nextElementSibling.style.display=\"none\";" +
-                        "document.querySelector('.plist.plist1').firstElementChild.nextElementSibling.nextElementSibling.style.display=\"none\";" +
+                        "document.querySelector('.plist.plist1').getElementsByTagName('div')[0].style.display=\"none\";" +
                         "} " +
                         "removeThem();");
             } catch (Exception e) {
