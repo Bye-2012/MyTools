@@ -14,7 +14,7 @@ import com.moon.mui.R
 /**
  * Date: 2021/10/21 5:42 下午
  * Author: Moon
- * Desc:
+ * Desc: 圆形指示器
  */
 class MCircleIndicator @JvmOverloads constructor(
     context: Context,
