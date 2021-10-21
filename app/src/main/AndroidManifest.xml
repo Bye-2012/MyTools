@@ -49,6 +49,7 @@
             android:screenOrientation="portrait"
             />
         <activity android:name=".demo.RefreshDemoActivity" />
+        <activity android:name=".demo.BannerDemoActivity" />
 
     </application>
 

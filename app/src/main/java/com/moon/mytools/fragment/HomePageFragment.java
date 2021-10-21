@@ -9,8 +9,7 @@ import androidx.annotation.Nullable;
 
 import com.moon.common.ui.component.MBaseFragment;
 import com.moon.mytools.R;
-import com.moon.mytools.demo.RefreshDemoActivity;
-import com.moon.mytools.demo.TopTabDemoActivity;
+import com.moon.mytools.demo.BannerDemoActivity;
 import com.moon.mytools.web.WebListActivity;
 
 /**
@@ -37,7 +36,7 @@ public class HomePageFragment extends MBaseFragment implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_top_tab:
-                startActivity(new Intent(getContext(), RefreshDemoActivity.class));
+                startActivity(new Intent(getContext(), BannerDemoActivity.class));
                 break;
             case R.id.btn_video:
                 startActivity(new Intent(getContext(), WebListActivity.class));
