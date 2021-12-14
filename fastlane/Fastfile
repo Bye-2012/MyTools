@@ -22,6 +22,15 @@ platform :android do
     gradle(task: 'clean')
   end
 
+  desc "打测试环境包并上传到fir"
+  lane :fir do
+    gradle(task: 'clean')
+    gradle(task: 'assembleDebug')
+    apk_path = lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]
+    puts apk_path
+    #sh("fir publish  #{apk_path}")
+  end
+
   #Log Console#
   after_all do |lane|
     ship_it
