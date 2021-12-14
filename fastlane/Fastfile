@@ -1,0 +1,71 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:android)
+
+platform :android do
+
+  desc "clean工程"
+  lane :clean do
+    gradle(task: 'clean')
+  end
+
+  #Log Console#
+  after_all do |lane|
+    ship_it
+    notification(message:"Lane '#{lane}' completed successfully!")
+  end
+
+  error do |lane, exception|
+    clean_build_artifacts
+    notification(message:"Abort! '#{lane}'") # Mac OS X Notification
+  end
+
+  def ship_it
+    rand = Random.rand(0..1)
+    if rand == 0
+      squirrel
+    elsif rand == 1
+      boat
+    end
+  end
+
+  def squirrel
+    puts "
+      !!!!
+    !!!!!!!!
+  !!!!!!!!!!!   O_O
+  !!!  !!!!!!! /@ @\\
+        !!!!!! \\ x /
+        !!!!!!/ m  !m
+         !!!!/ __  |
+         !!!!|/  \\__
+          !!!\\______\\
+    ".yellow
+  end
+
+  def boat
+    puts "
+       .  o ..
+       o . o o.o
+            ...oo
+              __[]__
+           __|_o_o_o\__
+           \\\"\"\"\"\"\"\"\"\"\"/
+            \\. ..  . /
+       ^^^^^^^^^^^^^^^^^^^^
+    ".blue
+  end
+end
