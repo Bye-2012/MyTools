@@ -7,8 +7,6 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 48
-        versionName "1.4.8"
 
         ndk {
             //选择要添加的对应cpu类型的.so库。
