@@ -81,7 +81,7 @@ public class MLog {
         StringBuilder sb = new StringBuilder();
         if (config.includeThread()) {
             String threadInfo = MLogConfig.M_THREAD_FORMATTER.format(Thread.currentThread());
-            sb.append(threadInfo).append("\n");
+            sb.append("\n\n").append(threadInfo).append("\n");
         }
         if (config.stackTraceDepth() > 0) {
             String stackTraceInfo = MLogConfig.M_STACK_TRACE_FORMATTER.format(
@@ -92,6 +92,7 @@ public class MLog {
         if (body != null) {
             body = body.replace("\\\"", "\""); // 替换转义字符
         }
+        sb.append("Log如下:\n");
         sb.append(body);
         List<MLogPrinter> printers = MLogManager.getInstance().getPrinters();
         if (printers == null || printers.size() == 0) {

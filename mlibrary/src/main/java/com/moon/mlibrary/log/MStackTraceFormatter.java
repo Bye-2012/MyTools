@@ -17,7 +17,7 @@ public class MStackTraceFormatter implements MLogFormatter<StackTraceElement[]> 
         } else {
             for (int i = 0, len = stackTrace.length; i < len; i++) {
                 if (i == 0) {
-                    sb.append("stackTrace: \n");
+                    sb.append("StackTrace: \n");
                 }
                 if (i != len - 1) {
                     sb.append("\t├ ");
