@@ -6,6 +6,7 @@ import com.moon.mlibrary.log.MConsolePrinter
 import com.moon.mlibrary.log.MLogConfig
 import com.moon.mlibrary.log.MLogConfig.JsonParser
 import com.moon.mlibrary.log.MLogManager
+import com.moon.mlibrary.util.ActivityManager
 import com.umeng.commonsdk.UMConfigure
 import com.ycbjie.webviewlib.utils.X5WebUtils
 
@@ -42,11 +43,13 @@ class MyApplication : MBaseApplication() {
             }
 
             override fun stackTraceDepth(): Int {
-                return 3
+                return 2
             }
 
         }, MConsolePrinter())
 
         X5WebUtils.init(this)
+
+        ActivityManager.instance.init(this)
     }
 }
