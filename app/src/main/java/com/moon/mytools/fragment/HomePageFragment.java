@@ -10,7 +10,6 @@ import androidx.annotation.Nullable;
 import com.moon.common.ui.component.MBaseFragment;
 import com.moon.mytools.R;
 import com.moon.mytools.demo.BannerDemoActivity;
-import com.moon.mytools.web.WebListActivity;
 
 /**
  * Date: 9/29/21 5:27 PM
@@ -29,7 +28,6 @@ public class HomePageFragment extends MBaseFragment implements View.OnClickListe
         super.onViewCreated(view, savedInstanceState);
 
         mLayoutView.findViewById(R.id.btn_top_tab).setOnClickListener(this);
-        mLayoutView.findViewById(R.id.btn_video).setOnClickListener(this);
     }
 
     @Override
@@ -37,9 +35,6 @@ public class HomePageFragment extends MBaseFragment implements View.OnClickListe
         switch (v.getId()) {
             case R.id.btn_top_tab:
                 startActivity(new Intent(getContext(), BannerDemoActivity.class));
-                break;
-            case R.id.btn_video:
-                startActivity(new Intent(getContext(), WebListActivity.class));
                 break;
         }
     }

@@ -5,6 +5,8 @@ import android.view.ViewTreeObserver;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.moon.common.ui.component.MBaseActivity;
 import com.moon.mlibrary.log.MLog;
@@ -28,6 +30,11 @@ public class MainActivity extends MBaseActivity implements MainActivityLogic.Act
         mMainActivityLogic = new MainActivityLogic(this, savedInstanceState);
 
         ActivityManager.getInstance().registerFrontBackCallback(this);
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+
+        transaction.commit();
     }
 
     @Override
