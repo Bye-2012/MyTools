@@ -2,11 +2,13 @@ package com.moon.mytools.demo
 
 import android.os.Bundle
 import android.widget.Toast
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.moon.common.ui.component.MBaseActivity
 import com.moon.mui.tab.top.MTabTopInfo
+import com.moon.mui.tab.top.MTabTopLayout
 import com.moon.mytools.R
-import kotlinx.android.synthetic.main.activity_top_tab_demo.*
 
+@Route(path = "/demo/topTab")
 class TopTabDemoActivity : MBaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,10 +39,11 @@ class TopTabDemoActivity : MBaseActivity() {
             infoList.add(tabTopInfo)
         }
 
-        tab_top_layout.inflateInfo(infoList)
-        tab_top_layout.addTabSelectedChangeListener { _, _, nextInfo ->
+        val tabTopLayout = findViewById<MTabTopLayout>(R.id.tab_top_layout)
+        tabTopLayout.inflateInfo(infoList)
+        tabTopLayout.addTabSelectedChangeListener { _, _, nextInfo ->
             Toast.makeText(this@TopTabDemoActivity, nextInfo.name, Toast.LENGTH_SHORT).show()
         }
-        tab_top_layout.defaultSelected(infoList[0])
+        tabTopLayout.defaultSelected(infoList[0])
     }
 }

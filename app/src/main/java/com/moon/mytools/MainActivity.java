@@ -1,13 +1,15 @@
 package com.moon.mytools;
 
 import android.os.Bundle;
-import android.view.ViewTreeObserver;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.alibaba.android.arouter.facade.annotation.Autowired;
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.moon.common.ui.component.MBaseActivity;
 import com.moon.mlibrary.log.MLog;
 import com.moon.mlibrary.util.ActivityManager;
@@ -18,7 +20,11 @@ import com.moon.mytools.logic.MainActivityLogic;
  * Author: Moon
  * Desc: 主页
  */
+@Route(path = "/index/main")
 public class MainActivity extends MBaseActivity implements MainActivityLogic.ActivityProvider, ActivityManager.FrontBackCallback {
+
+    @Autowired
+    public int age;
 
     private MainActivityLogic mMainActivityLogic;
 
@@ -26,6 +32,8 @@ public class MainActivity extends MBaseActivity implements MainActivityLogic.Act
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ARouter.getInstance().inject(this);
 
         mMainActivityLogic = new MainActivityLogic(this, savedInstanceState);
 

@@ -12,6 +12,8 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.moon.common.ui.component.MBaseActivity;
 import com.moon.mui.refresh.MRefresh;
 import com.moon.mui.refresh.MRefreshLayout;
@@ -25,6 +27,7 @@ import java.util.ArrayList;
  * Author: Moon
  * Desc:
  */
+@Route(path = "/demo/refresh")
 public class RefreshDemoActivity extends MBaseActivity {
 
     private MRefreshLayout mRefreshLayout;

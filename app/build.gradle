@@ -1,21 +1,35 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+    id 'com.alibaba.arouter'
 }
 
+def ext = rootProject.ext
+def dependency = rootProject.ext.dependencies
+
 android {
-    compileSdkVersion 31
-    buildToolsVersion '31.0.0'
+    compileSdkVersion ext.compileSdkVersion
+    buildToolsVersion ext.buildToolsVersion
 
     defaultConfig {
         applicationId "com.moon.mytools"
-        minSdkVersion 21
-        targetSdkVersion 31
-        versionCode 1
-        versionName "1.0"
-
+        minSdkVersion ext.minSdkVersion
+        targetSdkVersion ext.targetSdkVersion
+        versionCode ext.versionCode
+        versionName ext.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+        //开启拆分包
+        multiDexEnabled true
+        //配置支持的动态库类型
+        ndk {
+//            abiFilters 'armeabi-v7a', 'x86', 'x86_64'
+        }
     }
 
     buildTypes {
@@ -46,27 +60,31 @@ dependencies {
     implementation project(path: ':mui')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.core:core-ktx:1.6.0'
     implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation project(path: ':WebViewLib')
+    implementation project(path: ':mwebview')
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    //arouter路由
+    implementation dependency.arouter_api
+    kapt dependency.arouter_compiler
 
     // Umeng
-    implementation "com.umeng.umsdk:common:9.4.2" //必选
-    implementation "com.umeng.umsdk:asms:1.4.1" //必选
-    implementation 'com.umeng.umsdk:apm:1.4.2' //错误分析统计
+    implementation dependency.umeng_common
+    implementation dependency.umeng_asms
+    implementation dependency.umeng_apm
 
     // Gson
-    implementation 'com.google.code.gson:gson:2.8.8'
+    implementation 'com.google.code.gson:gson:2.8.9'
 
     // Lottie
-    implementation 'com.airbnb.android:lottie:4.2.0'
+    implementation 'com.airbnb.android:lottie:5.0.3'
 
     // Glide
-    implementation 'com.github.bumptech.glide:glide:4.10.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
 }

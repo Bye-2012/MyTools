@@ -1,12 +1,15 @@
 apply plugin: 'com.android.library'
 
+def ext = rootProject.ext
+def dependency = rootProject.ext.dependencies
+
 android {
-    compileSdkVersion 31
-    buildToolsVersion '31.0.0'
+    compileSdkVersion ext.compileSdkVersion
+    buildToolsVersion ext.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 31
+        minSdkVersion ext.minSdkVersion
+        targetSdkVersion ext.targetSdkVersion
 
         ndk {
             //选择要添加的对应cpu类型的.so库。

@@ -1,15 +1,14 @@
 package com.moon.mytools.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.moon.common.ui.component.MBaseFragment;
 import com.moon.mytools.R;
-import com.moon.mytools.demo.BannerDemoActivity;
 
 /**
  * Date: 9/29/21 5:27 PM
@@ -34,7 +33,12 @@ public class HomePageFragment extends MBaseFragment implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_top_tab:
-                startActivity(new Intent(getContext(), BannerDemoActivity.class));
+//                ARouter.getInstance()
+//                        .build("/demo/banner")
+//                        .withInt("count", 2)
+//                        .greenChannel()
+//                        .navigation();
+                ARouter.getInstance().build("/profile/detail").navigation(getContext());
                 break;
         }
     }

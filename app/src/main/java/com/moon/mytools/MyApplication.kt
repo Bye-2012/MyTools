@@ -1,5 +1,6 @@
 package com.moon.mytools
 
+import com.alibaba.android.arouter.launcher.ARouter
 import com.google.gson.Gson
 import com.moon.common.ui.component.MBaseApplication
 import com.moon.mlibrary.log.MConsolePrinter
@@ -51,5 +52,11 @@ class MyApplication : MBaseApplication() {
         X5WebUtils.init(this)
 
         ActivityManager.instance.init(this)
+
+        if (BuildConfig.DEBUG) {
+            ARouter.openLog();
+            ARouter.openDebug();
+        }
+        ARouter.init(this);
     }
 }

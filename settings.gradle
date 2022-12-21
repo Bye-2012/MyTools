@@ -2,5 +2,5 @@ include ':common'
 include ':mui'
 include ':mlibrary'
 include ':app'
-include ':WebViewLib'
+include ':mwebview'
 rootProject.name = "MyTools"

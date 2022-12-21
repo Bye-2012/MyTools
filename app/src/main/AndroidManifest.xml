@@ -23,7 +23,6 @@
         android:theme="@style/Theme.MyTools"
         tools:targetApi="n"
         >
-        <activity android:name=".demo.TopTabDemoActivity" />
 
         <activity
             android:name=".MainActivity"
@@ -42,8 +41,11 @@
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait"
             />
+
         <activity android:name=".demo.RefreshDemoActivity" />
         <activity android:name=".demo.BannerDemoActivity" />
+        <activity android:name=".demo.TopTabDemoActivity" />
+        <activity android:name=".arouter.DegradeGlobalActivity" />
 
     </application>
 
