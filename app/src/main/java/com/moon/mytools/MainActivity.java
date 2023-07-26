@@ -15,6 +15,9 @@ import com.moon.mlibrary.log.MLog;
 import com.moon.mlibrary.util.ActivityManager;
 import com.moon.mytools.logic.MainActivityLogic;
 
+import java.lang.invoke.MethodHandles;
+import java.lang.invoke.MethodType;
+
 /**
  * Date: 9/30/21 2:29 PM
  * Author: Moon
@@ -22,7 +25,6 @@ import com.moon.mytools.logic.MainActivityLogic;
  */
 @Route(path = "/index/main")
 public class MainActivity extends MBaseActivity implements MainActivityLogic.ActivityProvider, ActivityManager.FrontBackCallback {
-
     @Autowired
     public int age;
 
@@ -43,6 +45,8 @@ public class MainActivity extends MBaseActivity implements MainActivityLogic.Act
         FragmentTransaction transaction = fragmentManager.beginTransaction();
 
         transaction.commit();
+
+        test();
     }
 
     @Override
@@ -60,5 +64,9 @@ public class MainActivity extends MBaseActivity implements MainActivityLogic.Act
     @Override
     public void onChanged(boolean front) {
         MLog.d("app处于：" + front);
+    }
+
+    private void test() {
+
     }
 }

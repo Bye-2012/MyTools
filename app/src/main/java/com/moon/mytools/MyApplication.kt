@@ -1,5 +1,6 @@
 package com.moon.mytools
 
+import android.content.Context
 import com.alibaba.android.arouter.launcher.ARouter
 import com.google.gson.Gson
 import com.moon.common.ui.component.MBaseApplication
@@ -17,6 +18,15 @@ import com.ycbjie.webviewlib.utils.X5WebUtils
  * Desc: Application类
  */
 class MyApplication : MBaseApplication() {
+
+    companion object {
+        lateinit var instance: MyApplication
+    }
+
+    override fun attachBaseContext(base: Context?) {
+        super.attachBaseContext(base)
+        instance = this
+    }
 
     override fun onCreate() {
         super.onCreate()

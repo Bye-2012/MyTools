@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'com.alibaba.arouter'
+    id 'org.jetbrains.kotlin.android'
 }
 
 def ext = rootProject.ext
@@ -38,13 +39,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
     sourceSets {
         main {
             assets {
@@ -52,39 +56,55 @@ android {
             }
         }
     }
+    namespace 'com.moon.mytools'
 }
 
 dependencies {
+
     implementation project(path: ':common')
     implementation project(path: ':mlibrary')
     implementation project(path: ':mui')
-
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.6.0'
-    implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation project(path: ':mwebview')
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
-    //arouter路由
+    //android
+    implementation dependency.kotlin
+    implementation dependency.core_ktx
+    implementation dependency.appcompat
+    implementation dependency.material
+    implementation dependency.constraintlayout
+    implementation dependency.lifecycle_runtime_ktx
+
+    //test
+    testImplementation dependency.junit
+    androidTestImplementation dependency.test_junit
+    androidTestImplementation dependency.test_espresso_core
+
+    //coroutine
+    implementation dependency.ktx_coroutines_core
+    implementation dependency.ktx_coroutines_android
+
+    //http
+    implementation dependency.okhttp
+    implementation dependency.okhttp_logging_interceptor
+    implementation dependency.retrofit
+    implementation dependency.retrofit_converter_gson
+
+    //arouter
     implementation dependency.arouter_api
     kapt dependency.arouter_compiler
 
-    // Umeng
+    //umeng
     implementation dependency.umeng_common
     implementation dependency.umeng_asms
     implementation dependency.umeng_apm
 
-    // Gson
-    implementation 'com.google.code.gson:gson:2.8.9'
+    //gson
+    implementation dependency.gson
 
-    // Lottie
-    implementation 'com.airbnb.android:lottie:5.0.3'
+    //lottie
+    implementation dependency.lottie
 
-    // Glide
-    implementation 'com.github.bumptech.glide:glide:4.12.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+    //glide
+    implementation dependency.glide
+    annotationProcessor dependency.glide_compiler
 }
